@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-api-1.0-sdk-1.7.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-api-labs.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-endpoints.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-jsr107cache-1.7.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-api-1.1.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/datanucleus-api-jdo-3.0.7.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/datanucleus-api-jpa-3.0.9.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/datanucleus-appengine-2.0.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/datanucleus-core-3.0.10.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/geronimo-jpa_2.0_spec-1.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jdo-api-3.1-SNAPSHOT-20110926.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jericho-html-3.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jsr107cache-1.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/transaction-api-1.1.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>
