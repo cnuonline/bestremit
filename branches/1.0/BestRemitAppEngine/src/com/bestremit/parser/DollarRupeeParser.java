@@ -140,16 +140,16 @@ public class DollarRupeeParser extends RupeeParser {
         }
     }
     private String buildMessage(List<RemitanceProviderBean> remitanceProviderBeans,String symbol) {
-        StringBuffer message = new StringBuffer("<p> Here is the best remits available in the market <p>");
-        String displaySymbol = null;
+        StringBuffer message = new StringBuffer("The best remits available in the market for ${0-2000}.");
+        String displaySymbol = BestRemitAppEngineServlet.displaySymbols.get(symbol);
          for (RemitanceProviderBean remitanceProviderBean : remitanceProviderBeans) {
              RemittanceCurrencyBean remittanceCurrencyBean = remitanceProviderBean.getRemittanceCurrencies().get(0);
-             displaySymbol =  BestRemitAppEngineServlet.displaySymbols.get(remitanceProviderBean.getCurrencySymbol());
-             message.append(remitanceProviderBean.getRemittanceProviderName()).append(" Rs currency rate of ");
+            // displaySymbol =  BestRemitAppEngineServlet.displaySymbols.get(remitanceProviderBean.getCurrencySymbol());
+             message.append(remitanceProviderBean.getRemittanceProviderName()).append("->Rs ");
              message.append(remittanceCurrencyBean.getRate());
-             message.append(" for a amount range ").append(displaySymbol).append("{")
-                     .append(remittanceCurrencyBean.getAmount()).append("} ");
-             message.append("</p>");
+             //message.append(" ->").append(displaySymbol);//.append("{");
+            // message.append(remittanceCurrencyBean.getAmount());//.append("}. ");
+             message.append(". ");
          }
         
          return message.toString();
