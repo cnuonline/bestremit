@@ -54,7 +54,8 @@ public class BestRemitAppEngineServlet extends HttpServlet {
              rupeeParser = symbolMaps.get("USD");
              url = urlMap.get("USD");
              symbol = "USD";
-             message = " </br><b>How to use : Pass the message @BestRemit (USD/EUR/GBP/) .Default is US Dollars </b>";
+             message = " </br><b>HowToUse:Pass the message @BestRemit (USD/EUR/GBP/).Default is US Dollars </b>";
+             
          }
          try {
              List<RemitanceProviderBean> remitanceProviderBeans =  rupeeParser.parseDollar(url);
@@ -83,19 +84,18 @@ public class BestRemitAppEngineServlet extends HttpServlet {
      }
 */
      private String buildMessage(List<RemitanceProviderBean> remitanceProviderBeans,String symbol) {
-         StringBuffer message = new StringBuffer("<p>Here is the best remits available in the market.</p>");
-         String displaySymbol = null;
+         StringBuffer message = new StringBuffer("Best remits in the market for ${0-2000}. ");
+         String displaySymbol = BestRemitAppEngineServlet.displaySymbols.get(symbol);
           for (RemitanceProviderBean remitanceProviderBean : remitanceProviderBeans) {
               RemittanceCurrencyBean remittanceCurrencyBean = remitanceProviderBean.getRemittanceCurrencies().get(0);
-              displaySymbol =  BestRemitAppEngineServlet.displaySymbols.get(remitanceProviderBean.getCurrencySymbol());
-              message.append(remitanceProviderBean.getRemittanceProviderName()).append(" Rs ");
+             // displaySymbol =  BestRemitAppEngineServlet.displaySymbols.get(remitanceProviderBean.getCurrencySymbol());
+              message.append(remitanceProviderBean.getRemittanceProviderName()).append("->Rs ");
               message.append(remittanceCurrencyBean.getRate());
-              message.append(" for").append(displaySymbol).append("{")
-                      .append(remittanceCurrencyBean.getAmount()).append("}. ");
-              message.append("</p>");
-          }
-         
-          return message.toString();
+              //message.append(" ->").append(displaySymbol);//.append("{");
+             // message.append(remittanceCurrencyBean.getAmount());//.append("}. ");
+              message.append(". ");
+          }         
+          return message.toString().trim();
       }
      private void sendResponse(HttpServletResponse resp, String smsResponse) {
          try {
